@@ -157,7 +157,7 @@ body img.nfb-cover-image {
     position: relative !important;
     z-index: 1001 !important;
     align-self: flex-start !important;
-    margin-top: 0 !important;
+    margin-top: 15px !important;
 }
 
 .nfb-header-text {
