@@ -130,10 +130,21 @@ body.admin-bar .nfb-header-spacer {
 }
 
 .nfb-cover-image {
-    height: 60px;
-    width: auto;
+    height: 60px !important;
+    width: auto !important;
+    max-width: 45px !important;
+    object-fit: contain !important;
     border-radius: 4px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Elementor compatibility */
+.elementor .nfb-cover-image,
+.elementor-widget .nfb-cover-image {
+    height: 60px !important;
+    width: auto !important;
+    max-width: 45px !important;
+    object-fit: contain !important;
 }
 
 .nfb-header-text {
