@@ -27,7 +27,7 @@ class NFB_Admin {
         add_menu_page(
             __('Nati Fuori Binario', 'nfb-landing'),
             __('NFB Landing', 'nfb-landing'),
-            'manage_options',
+            'edit_posts',
             'nfb-landing',
             array($this, 'render_settings_page'),
             'dashicons-book',
@@ -38,14 +38,21 @@ class NFB_Admin {
             'nfb-landing',
             __('Impostazioni Landing', 'nfb-landing'),
             __('Impostazioni', 'nfb-landing'),
-            'manage_options',
+            'edit_posts',
             'nfb-landing',
             array($this, 'render_settings_page')
         );
     }
 
     public function register_settings() {
-        register_setting('nfb_landing_options_group', 'nfb_landing_options', array($this, 'sanitize_options'));
+        register_setting('nfb_landing_options_group', 'nfb_landing_options', array(
+            'sanitize_callback' => array($this, 'sanitize_options'),
+        ));
+
+        // Allow editors and authors to save options
+        add_filter('option_page_capability_nfb_landing_options_group', function() {
+            return 'edit_posts';
+        });
 
         // Sezione Sinossi
         add_settings_section(
@@ -129,7 +136,7 @@ class NFB_Admin {
     }
 
     public function render_settings_page() {
-        if (!current_user_can('manage_options')) {
+        if (!current_user_can('edit_posts')) {
             return;
         }
 
