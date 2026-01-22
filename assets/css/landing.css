@@ -698,6 +698,43 @@ body img.nfb-cover-image {
 }
 
 /* ==========================================================================
+   Scroll to Top Button
+   ========================================================================== */
+.nfb-scroll-top {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    width: 50px;
+    height: 50px;
+    background: var(--nfb-purple);
+    color: var(--nfb-white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--nfb-transition);
+    z-index: 998;
+}
+
+.nfb-scroll-top:hover {
+    background: var(--nfb-dark);
+    transform: translateY(-3px);
+}
+
+.nfb-scroll-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.nfb-scroll-top svg {
+    stroke: currentColor;
+}
+
+/* ==========================================================================
    Responsive Styles
    ========================================================================== */
 
