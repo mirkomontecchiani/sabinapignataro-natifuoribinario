@@ -116,7 +116,7 @@ body.admin-bar .nfb-header-spacer {
 
 .nfb-header-inner {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     height: 100%;
     max-width: var(--nfb-container-width);
@@ -186,6 +186,7 @@ body img.nfb-cover-image {
 .nfb-nav {
     display: flex;
     align-items: center;
+    padding-top: 20px;
 }
 
 .nfb-nav-list {
