@@ -34,6 +34,9 @@ class NFB_Landing {
     private function __construct() {
         $this->load_dependencies();
         $this->init_hooks();
+
+        // Initialize post types immediately
+        NFB_Post_Types::get_instance();
     }
 
     private function load_dependencies() {
@@ -52,7 +55,6 @@ class NFB_Landing {
     }
 
     public function init() {
-        NFB_Post_Types::get_instance();
         NFB_Shortcode::get_instance();
         NFB_Admin::get_instance();
     }

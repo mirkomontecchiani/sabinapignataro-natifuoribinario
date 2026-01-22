@@ -18,6 +18,7 @@
             this.eventiToggle();
             this.headerShrink();
             this.scrollToTop();
+            this.scrollReveal();
         },
 
         /**
@@ -207,6 +208,48 @@
                 } else {
                     $scrollBtn.removeClass('visible');
                 }
+            });
+        },
+
+        /**
+         * Scroll Reveal Animations
+         */
+        scrollReveal: function() {
+            // Add animation classes to elements
+            $('.nfb-sinossi-text').addClass('nfb-animate nfb-animate-left');
+            $('.nfb-sinossi-cover').addClass('nfb-animate nfb-animate-right');
+            $('.nfb-section-title').addClass('nfb-animate nfb-animate-up');
+            $('.nfb-section-content').addClass('nfb-animate nfb-animate-up');
+            $('.nfb-rassegna-item').addClass('nfb-animate');
+            $('.nfb-evento-card').addClass('nfb-animate');
+            $('.nfb-footer-content').addClass('nfb-animate nfb-animate-up');
+
+            // Check if Intersection Observer is supported
+            if (!('IntersectionObserver' in window)) {
+                // Fallback: show all elements immediately
+                $('.nfb-animate').addClass('nfb-visible');
+                return;
+            }
+
+            // Create observer
+            var observerOptions = {
+                root: null,
+                rootMargin: '0px 0px -50px 0px',
+                threshold: 0.1
+            };
+
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        $(entry.target).addClass('nfb-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all animated elements
+            $('.nfb-animate').each(function() {
+                observer.observe(this);
             });
         }
     };
