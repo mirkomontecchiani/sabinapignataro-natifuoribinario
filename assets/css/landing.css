@@ -101,16 +101,16 @@ body.admin-bar .nfb-header {
 }
 
 .nfb-header-spacer {
-    height: calc(var(--nfb-header-height) + 50px);
+    height: calc(var(--nfb-header-height) + 60px);
 }
 
 body.admin-bar .nfb-header-spacer {
-    height: calc(var(--nfb-header-height) + 82px);
+    height: calc(var(--nfb-header-height) + 92px);
 }
 
 @media screen and (max-width: 782px) {
     body.admin-bar .nfb-header-spacer {
-        height: calc(var(--nfb-header-height) + 96px);
+        height: calc(var(--nfb-header-height) + 106px);
     }
 }
 
@@ -128,7 +128,6 @@ body.admin-bar .nfb-header-spacer {
     display: flex;
     align-items: flex-start;
     gap: 15px;
-    padding-top: 8px;
 }
 
 /* Cover image - ultra specific for Elementor */
@@ -157,13 +156,14 @@ body img.nfb-cover-image {
     flex-grow: 0 !important;
     position: relative !important;
     z-index: 1001 !important;
-    margin-top: 10px !important;
+    align-self: flex-start !important;
+    margin-top: 0 !important;
 }
 
 .nfb-header-text {
     display: flex;
     flex-direction: column;
-    padding-top: 15px;
+    padding-top: 20px;
 }
 
 .nfb-site-title {
