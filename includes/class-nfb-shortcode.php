@@ -104,12 +104,17 @@ class NFB_Shortcode {
         if (empty($content)) {
             return;
         }
+        $cover_image = NFB_LANDING_PLUGIN_URL . 'assets/images/Copertina-Nati-Fuori-Binario.jpg';
         ?>
         <section class="nfb-section nfb-sinossi" id="sinossi">
             <div class="nfb-container">
-                <h2 class="nfb-section-title"><?php _e('Sinossi', 'nfb-landing'); ?></h2>
-                <div class="nfb-section-content">
-                    <?php echo wp_kses_post($content); ?>
+                <div class="nfb-sinossi-layout">
+                    <div class="nfb-sinossi-text">
+                        <?php echo wp_kses_post($content); ?>
+                    </div>
+                    <div class="nfb-sinossi-cover">
+                        <img src="<?php echo esc_url($cover_image); ?>" alt="<?php _e('Copertina Nati Fuori Binario', 'nfb-landing'); ?>" class="nfb-sinossi-image">
+                    </div>
                 </div>
             </div>
         </section>
