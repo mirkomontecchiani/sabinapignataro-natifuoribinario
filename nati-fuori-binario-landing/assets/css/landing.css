@@ -1,0 +1,824 @@
+/**
+ * Nati Fuori Binario Landing - Styles
+ * Landing page per il libro di Sabina Pignataro
+ */
+
+/* ==========================================================================
+   CSS Variables
+   ========================================================================== */
+:root {
+    --nfb-primary: #2c3e50;
+    --nfb-secondary: #e74c3c;
+    --nfb-accent: #3498db;
+    --nfb-light: #ecf0f1;
+    --nfb-dark: #1a252f;
+    --nfb-text: #333333;
+    --nfb-text-light: #666666;
+    --nfb-white: #ffffff;
+    --nfb-border: #ddd;
+    --nfb-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    --nfb-shadow-lg: 0 4px 20px rgba(0, 0, 0, 0.15);
+    --nfb-transition: all 0.3s ease;
+    --nfb-header-height: 80px;
+    --nfb-container-width: 1200px;
+    --nfb-font-primary: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
+/* ==========================================================================
+   Reset & Base Styles for Landing Page
+   ========================================================================== */
+.nfb-landing-page,
+.nfb-landing-page * {
+    box-sizing: border-box;
+}
+
+.nfb-landing-page {
+    margin: 0;
+    padding: 0;
+}
+
+body.nfb-landing-page {
+    font-family: var(--nfb-font-primary);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--nfb-text);
+    background-color: var(--nfb-white);
+}
+
+body.nfb-landing-page #wpadminbar ~ * {
+    margin-top: 0;
+}
+
+/* Hide theme header and footer */
+body.nfb-landing-page header:not(.nfb-header),
+body.nfb-landing-page footer:not(.nfb-footer),
+body.nfb-landing-page .site-header,
+body.nfb-landing-page .site-footer,
+body.nfb-landing-page #masthead,
+body.nfb-landing-page #colophon {
+    display: none !important;
+}
+
+.nfb-landing-wrapper {
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ==========================================================================
+   Container
+   ========================================================================== */
+.nfb-container {
+    width: 100%;
+    max-width: var(--nfb-container-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+.nfb-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: var(--nfb-white);
+    box-shadow: var(--nfb-shadow);
+    height: var(--nfb-header-height);
+}
+
+body.admin-bar .nfb-header {
+    top: 32px;
+}
+
+@media screen and (max-width: 782px) {
+    body.admin-bar .nfb-header {
+        top: 46px;
+    }
+}
+
+.nfb-header-spacer {
+    height: var(--nfb-header-height);
+}
+
+body.admin-bar .nfb-header-spacer {
+    height: calc(var(--nfb-header-height) + 32px);
+}
+
+@media screen and (max-width: 782px) {
+    body.admin-bar .nfb-header-spacer {
+        height: calc(var(--nfb-header-height) + 46px);
+    }
+}
+
+.nfb-header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    max-width: var(--nfb-container-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.nfb-header-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.nfb-cover-image {
+    height: 60px;
+    width: auto;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.nfb-header-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.nfb-site-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--nfb-primary);
+    margin: 0;
+    line-height: 1.2;
+}
+
+.nfb-site-description {
+    font-size: 0.85rem;
+    color: var(--nfb-text-light);
+    margin: 2px 0 0;
+}
+
+/* ==========================================================================
+   Navigation
+   ========================================================================== */
+.nfb-nav {
+    display: flex;
+    align-items: center;
+}
+
+.nfb-nav-list {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nfb-nav-list li {
+    margin: 0;
+}
+
+.nfb-nav-list a {
+    display: block;
+    padding: 10px 15px;
+    color: var(--nfb-text);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: var(--nfb-transition);
+    border-radius: 4px;
+}
+
+.nfb-nav-list a:hover {
+    color: var(--nfb-secondary);
+    background-color: var(--nfb-light);
+}
+
+/* Mobile Menu Toggle */
+.nfb-mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1002;
+}
+
+.nfb-hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 25px;
+}
+
+.nfb-hamburger span {
+    display: block;
+    height: 3px;
+    background: var(--nfb-primary);
+    border-radius: 3px;
+    transition: var(--nfb-transition);
+}
+
+.nfb-mobile-close {
+    display: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--nfb-primary);
+    cursor: pointer;
+    padding: 5px 15px;
+}
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+.nfb-btn {
+    display: inline-block;
+    padding: 10px 24px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: var(--nfb-transition);
+    cursor: pointer;
+    border: none;
+    text-align: center;
+}
+
+.nfb-btn-buy {
+    background: var(--nfb-secondary);
+    color: var(--nfb-white) !important;
+}
+
+.nfb-btn-buy:hover {
+    background: #c0392b;
+    transform: translateY(-2px);
+    box-shadow: var(--nfb-shadow-lg);
+}
+
+.nfb-btn-large {
+    padding: 15px 40px;
+    font-size: 1.1rem;
+}
+
+.nfb-nav-cta a {
+    padding: 10px 20px !important;
+}
+
+/* ==========================================================================
+   Sections
+   ========================================================================== */
+.nfb-section {
+    padding: 80px 0;
+}
+
+.nfb-section:nth-child(even) {
+    background: var(--nfb-light);
+}
+
+.nfb-section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--nfb-primary);
+    text-align: center;
+    margin: 0 0 40px;
+    position: relative;
+}
+
+.nfb-section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--nfb-secondary);
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+
+.nfb-section-content {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.nfb-section-content p {
+    margin-bottom: 1.5em;
+}
+
+.nfb-section-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* ==========================================================================
+   Sinossi
+   ========================================================================== */
+.nfb-sinossi {
+    background: var(--nfb-white);
+}
+
+.nfb-sinossi .nfb-section-content {
+    text-align: justify;
+}
+
+/* ==========================================================================
+   Chi Sono
+   ========================================================================== */
+.nfb-chi-sono {
+    background: var(--nfb-light);
+}
+
+.nfb-chi-sono .nfb-section-content img {
+    max-width: 300px;
+    float: left;
+    margin: 0 30px 20px 0;
+    border-radius: 8px;
+    box-shadow: var(--nfb-shadow);
+}
+
+/* ==========================================================================
+   Rassegna Stampa
+   ========================================================================== */
+.nfb-rassegna {
+    background: var(--nfb-white);
+}
+
+.nfb-rassegna-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.nfb-rassegna-item {
+    background: var(--nfb-white);
+    border: 1px solid var(--nfb-border);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: var(--nfb-transition);
+}
+
+.nfb-rassegna-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--nfb-shadow-lg);
+    border-color: var(--nfb-secondary);
+}
+
+.nfb-rassegna-hidden {
+    display: none;
+}
+
+.nfb-rassegna-link {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    text-decoration: none;
+    color: var(--nfb-text);
+    height: 100%;
+    min-height: 120px;
+}
+
+.nfb-rassegna-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--nfb-primary);
+    margin: 0 0 auto;
+    line-height: 1.4;
+}
+
+.nfb-rassegna-date {
+    font-size: 0.85rem;
+    color: var(--nfb-text-light);
+    margin-top: 15px;
+}
+
+/* Toggle Container */
+.nfb-toggle-container {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.nfb-toggle-btn {
+    background: var(--nfb-accent);
+    color: var(--nfb-white);
+    padding: 12px 30px;
+    font-size: 1rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: var(--nfb-transition);
+}
+
+.nfb-toggle-btn:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   Eventi
+   ========================================================================== */
+.nfb-eventi {
+    background: var(--nfb-light);
+}
+
+.nfb-eventi-subtitle {
+    font-size: 1.5rem;
+    color: var(--nfb-primary);
+    margin: 0 0 25px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--nfb-border);
+}
+
+.nfb-eventi-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.nfb-evento-card {
+    display: flex;
+    gap: 20px;
+    background: var(--nfb-white);
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: var(--nfb-shadow);
+    transition: var(--nfb-transition);
+}
+
+.nfb-evento-card:hover {
+    transform: translateX(10px);
+    box-shadow: var(--nfb-shadow-lg);
+}
+
+.nfb-evento-date-badge {
+    flex-shrink: 0;
+    width: 70px;
+    height: 70px;
+    background: var(--nfb-secondary);
+    color: var(--nfb-white);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.nfb-evento-day {
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.nfb-evento-month {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.nfb-evento-content {
+    flex: 1;
+}
+
+.nfb-evento-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--nfb-primary);
+    margin: 0 0 10px;
+}
+
+.nfb-evento-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 10px;
+}
+
+.nfb-evento-luogo,
+.nfb-evento-ora {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.95rem;
+    color: var(--nfb-text-light);
+}
+
+.nfb-evento-luogo svg,
+.nfb-evento-ora svg {
+    color: var(--nfb-secondary);
+}
+
+.nfb-evento-description {
+    font-size: 0.95rem;
+    color: var(--nfb-text);
+    line-height: 1.6;
+    margin-top: 10px;
+}
+
+.nfb-evento-description p {
+    margin: 0;
+}
+
+.nfb-eventi-past {
+    margin-top: 40px;
+    padding-top: 40px;
+    border-top: 1px solid var(--nfb-border);
+}
+
+.nfb-eventi-past .nfb-evento-card {
+    opacity: 0.7;
+}
+
+.nfb-eventi-past .nfb-evento-date-badge {
+    background: var(--nfb-text-light);
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.nfb-footer {
+    background: var(--nfb-dark);
+    color: var(--nfb-white);
+    padding: 60px 0 40px;
+    text-align: center;
+}
+
+.nfb-footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+.nfb-footer-cta {
+    margin-bottom: 10px;
+}
+
+.nfb-footer-links {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.nfb-footer-links a {
+    color: var(--nfb-light);
+    text-decoration: none;
+    transition: var(--nfb-transition);
+}
+
+.nfb-footer-links a:hover {
+    color: var(--nfb-secondary);
+}
+
+.nfb-footer-divider {
+    color: var(--nfb-text-light);
+}
+
+.nfb-footer-copyright {
+    font-size: 0.9rem;
+    color: var(--nfb-text-light);
+    margin: 0;
+}
+
+/* ==========================================================================
+   Mobile Overlay
+   ========================================================================== */
+.nfb-mobile-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.nfb-mobile-overlay.active {
+    display: block;
+}
+
+/* ==========================================================================
+   Responsive Styles
+   ========================================================================== */
+
+/* Tablet */
+@media screen and (max-width: 1024px) {
+    .nfb-rassegna-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Mobile */
+@media screen and (max-width: 768px) {
+    :root {
+        --nfb-header-height: 70px;
+    }
+
+    .nfb-header-inner {
+        padding: 0 15px;
+    }
+
+    .nfb-cover-image {
+        height: 50px;
+    }
+
+    .nfb-site-title {
+        font-size: 1rem;
+    }
+
+    .nfb-site-description {
+        font-size: 0.75rem;
+    }
+
+    /* Mobile Menu */
+    .nfb-mobile-menu-toggle {
+        display: block;
+    }
+
+    .nfb-nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: 100vh;
+        background: var(--nfb-white);
+        box-shadow: -5px 0 20px rgba(0, 0, 0, 0.2);
+        z-index: 1001;
+        transition: right 0.3s ease;
+        padding: 70px 0 30px;
+        overflow-y: auto;
+    }
+
+    .nfb-nav.active {
+        right: 0;
+    }
+
+    .nfb-mobile-close {
+        display: block;
+    }
+
+    .nfb-nav-list {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+    }
+
+    .nfb-nav-list li {
+        border-bottom: 1px solid var(--nfb-border);
+    }
+
+    .nfb-nav-list a {
+        padding: 15px 25px;
+        font-size: 1.1rem;
+        border-radius: 0;
+    }
+
+    .nfb-nav-cta {
+        padding: 20px;
+        border-bottom: none !important;
+    }
+
+    .nfb-nav-cta a {
+        display: block;
+        text-align: center;
+    }
+
+    /* Sections */
+    .nfb-section {
+        padding: 50px 0;
+    }
+
+    .nfb-section-title {
+        font-size: 1.75rem;
+    }
+
+    .nfb-section-content {
+        font-size: 1rem;
+    }
+
+    /* Rassegna Grid */
+    .nfb-rassegna-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .nfb-rassegna-link {
+        padding: 15px;
+        min-height: 100px;
+    }
+
+    .nfb-rassegna-title {
+        font-size: 0.9rem;
+    }
+
+    /* Eventi */
+    .nfb-evento-card {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .nfb-evento-date-badge {
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        gap: 10px;
+        padding: 12px;
+        border-radius: 8px;
+    }
+
+    .nfb-evento-day {
+        font-size: 1.5rem;
+    }
+
+    .nfb-evento-card:hover {
+        transform: none;
+    }
+
+    /* Chi Sono image */
+    .nfb-chi-sono .nfb-section-content img {
+        float: none;
+        display: block;
+        margin: 0 auto 20px;
+        max-width: 100%;
+    }
+}
+
+/* Small Mobile */
+@media screen and (max-width: 480px) {
+    .nfb-header-left {
+        gap: 10px;
+    }
+
+    .nfb-cover-image {
+        height: 45px;
+    }
+
+    .nfb-site-title {
+        font-size: 0.9rem;
+    }
+
+    .nfb-site-description {
+        display: none;
+    }
+
+    .nfb-rassegna-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .nfb-section-title {
+        font-size: 1.5rem;
+    }
+
+    .nfb-btn-large {
+        padding: 12px 30px;
+        font-size: 1rem;
+    }
+
+    .nfb-footer-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nfb-footer-divider {
+        display: none;
+    }
+}
+
+/* ==========================================================================
+   Smooth Scroll
+   ========================================================================== */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Offset for fixed header */
+.nfb-section[id] {
+    scroll-margin-top: calc(var(--nfb-header-height) + 20px);
+}
+
+body.admin-bar .nfb-section[id] {
+    scroll-margin-top: calc(var(--nfb-header-height) + 52px);
+}
+
+/* ==========================================================================
+   Animations
+   ========================================================================== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.nfb-rassegna-item,
+.nfb-evento-card {
+    animation: fadeIn 0.5s ease forwards;
+}
