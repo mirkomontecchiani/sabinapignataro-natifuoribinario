@@ -647,6 +647,23 @@ body img.nfb-cover-image {
     margin: 0;
 }
 
+.nfb-evento-cta {
+    margin-top: 15px;
+}
+
+.nfb-btn-evento {
+    background: var(--nfb-secondary);
+    color: var(--nfb-white) !important;
+    padding: 8px 20px;
+    font-size: 0.9rem;
+}
+
+.nfb-btn-evento:hover {
+    background: #7B3FA8;
+    transform: translateY(-2px);
+    box-shadow: var(--nfb-shadow);
+}
+
 .nfb-eventi-past {
     margin-top: 40px;
     padding-top: 40px;

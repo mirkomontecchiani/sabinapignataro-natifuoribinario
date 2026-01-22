@@ -141,6 +141,7 @@ class NFB_Post_Types {
         $luogo = get_post_meta($post->ID, '_nfb_evento_luogo', true);
         $data = get_post_meta($post->ID, '_nfb_evento_data', true);
         $ora = get_post_meta($post->ID, '_nfb_evento_ora', true);
+        $link = get_post_meta($post->ID, '_nfb_evento_link', true);
         ?>
         <table class="form-table">
             <tr>
@@ -169,6 +170,17 @@ class NFB_Post_Types {
                 <td>
                     <input type="time" id="nfb_evento_ora" name="nfb_evento_ora"
                            value="<?php echo esc_attr($ora); ?>">
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    <label for="nfb_evento_link"><?php _e('Link Evento', 'nfb-landing'); ?></label>
+                </th>
+                <td>
+                    <input type="url" id="nfb_evento_link" name="nfb_evento_link"
+                           value="<?php echo esc_url($link); ?>" class="regular-text"
+                           placeholder="https://esempio.com/evento">
+                    <p class="description"><?php _e('Inserisci un link per maggiori informazioni sull\'evento (opzionale)', 'nfb-landing'); ?></p>
                 </td>
             </tr>
         </table>
@@ -220,6 +232,10 @@ class NFB_Post_Types {
 
             if (isset($_POST['nfb_evento_ora'])) {
                 update_post_meta($post_id, '_nfb_evento_ora', sanitize_text_field($_POST['nfb_evento_ora']));
+            }
+
+            if (isset($_POST['nfb_evento_link'])) {
+                update_post_meta($post_id, '_nfb_evento_link', esc_url_raw($_POST['nfb_evento_link']));
             }
         }
     }
