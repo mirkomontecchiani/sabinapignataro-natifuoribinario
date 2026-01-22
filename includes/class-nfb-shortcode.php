@@ -302,6 +302,7 @@ class NFB_Shortcode {
         $luogo = get_post_meta(get_the_ID(), '_nfb_evento_luogo', true);
         $data = get_post_meta(get_the_ID(), '_nfb_evento_data', true);
         $ora = get_post_meta(get_the_ID(), '_nfb_evento_ora', true);
+        $link = get_post_meta(get_the_ID(), '_nfb_evento_link', true);
         $content = get_the_content();
 
         $formatted_date = '';
@@ -360,6 +361,13 @@ class NFB_Shortcode {
                 <?php if ($content): ?>
                     <div class="nfb-evento-description">
                         <?php echo wp_kses_post($content); ?>
+                    </div>
+                <?php endif; ?>
+                <?php if ($link): ?>
+                    <div class="nfb-evento-cta">
+                        <a href="<?php echo esc_url($link); ?>" target="_blank" rel="noopener" class="nfb-btn nfb-btn-evento">
+                            <?php _e('Vai all\'evento', 'nfb-landing'); ?>
+                        </a>
                     </div>
                 <?php endif; ?>
             </div>
