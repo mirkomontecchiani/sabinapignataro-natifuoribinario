@@ -159,6 +159,7 @@ class NFB_Shortcode {
                 'title' => get_the_title(),
                 'link' => get_post_meta(get_the_ID(), '_nfb_rassegna_link', true),
                 'date' => get_post_meta(get_the_ID(), '_nfb_rassegna_data', true),
+                'testata' => get_post_meta(get_the_ID(), '_nfb_rassegna_testata', true),
             );
         }
         wp_reset_postdata();
@@ -171,7 +172,7 @@ class NFB_Shortcode {
                     <?php
                     $count = 0;
                     foreach ($articles as $article):
-                        $hidden_class = $count >= 8 ? 'nfb-rassegna-hidden' : '';
+                        $hidden_class = $count >= 9 ? 'nfb-rassegna-hidden' : '';
                         $formatted_date = '';
                         if (!empty($article['date'])) {
                             $date_obj = DateTime::createFromFormat('Y-m-d', $article['date']);
@@ -182,6 +183,9 @@ class NFB_Shortcode {
                     ?>
                         <div class="nfb-rassegna-item <?php echo esc_attr($hidden_class); ?>">
                             <a href="<?php echo esc_url($article['link']); ?>" target="_blank" rel="noopener" class="nfb-rassegna-link">
+                                <?php if (!empty($article['testata'])): ?>
+                                    <span class="nfb-rassegna-testata"><?php echo esc_html($article['testata']); ?></span>
+                                <?php endif; ?>
                                 <h3 class="nfb-rassegna-title"><?php echo esc_html($article['title']); ?></h3>
                                 <?php if ($formatted_date): ?>
                                     <span class="nfb-rassegna-date"><?php echo esc_html($formatted_date); ?></span>
@@ -193,7 +197,7 @@ class NFB_Shortcode {
                     endforeach;
                     ?>
                 </div>
-                <?php if (count($articles) > 8): ?>
+                <?php if (count($articles) > 9): ?>
                     <div class="nfb-toggle-container">
                         <button class="nfb-toggle-btn" id="nfb-rassegna-toggle" data-expanded="false">
                             <span class="nfb-toggle-more"><?php _e('Mostra altri articoli', 'nfb-landing'); ?></span>
