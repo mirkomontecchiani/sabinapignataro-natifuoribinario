@@ -126,7 +126,7 @@ body.admin-bar .nfb-header-spacer {
 
 .nfb-header-left {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 15px;
 }
 
@@ -157,12 +157,13 @@ body img.nfb-cover-image {
     position: relative !important;
     z-index: 1001 !important;
     align-self: flex-start !important;
-    margin-top: 10px !important;
+    margin-top: 0 !important;
 }
 
 .nfb-header-text {
     display: flex;
     flex-direction: column;
+    padding-top: 20px;
 }
 
 .nfb-site-title {
