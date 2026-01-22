@@ -109,8 +109,20 @@ class NFB_Post_Types {
 
         $link = get_post_meta($post->ID, '_nfb_rassegna_link', true);
         $data = get_post_meta($post->ID, '_nfb_rassegna_data', true);
+        $testata = get_post_meta($post->ID, '_nfb_rassegna_testata', true);
         ?>
         <table class="form-table">
+            <tr>
+                <th scope="row">
+                    <label for="nfb_rassegna_testata"><?php _e('Testata', 'nfb-landing'); ?></label>
+                </th>
+                <td>
+                    <input type="text" id="nfb_rassegna_testata" name="nfb_rassegna_testata"
+                           value="<?php echo esc_attr($testata); ?>" class="regular-text"
+                           placeholder="Es: Corriere della Sera, La Repubblica...">
+                    <p class="description"><?php _e('Nome della testata giornalistica', 'nfb-landing'); ?></p>
+                </td>
+            </tr>
             <tr>
                 <th scope="row">
                     <label for="nfb_rassegna_link"><?php _e('Link Articolo', 'nfb-landing'); ?></label>
@@ -199,6 +211,10 @@ class NFB_Post_Types {
 
             if (!current_user_can('edit_post', $post_id)) {
                 return;
+            }
+
+            if (isset($_POST['nfb_rassegna_testata'])) {
+                update_post_meta($post_id, '_nfb_rassegna_testata', sanitize_text_field($_POST['nfb_rassegna_testata']));
             }
 
             if (isset($_POST['nfb_rassegna_link'])) {
