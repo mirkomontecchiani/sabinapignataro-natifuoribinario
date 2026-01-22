@@ -78,7 +78,7 @@ body.nfb-landing-page #colophon {
     width: 100%;
     max-width: var(--nfb-container-width);
     margin: 0 auto;
-    padding: 0 60px;
+    padding: 0 80px;
 }
 
 /* ==========================================================================
@@ -108,6 +108,7 @@ body.admin-bar .nfb-header {
 
 .nfb-header-spacer {
     height: var(--nfb-header-height);
+    background: var(--nfb-dark);
 }
 
 body.admin-bar .nfb-header-spacer {
@@ -367,8 +368,8 @@ body img.nfb-cover-image {
 }
 
 .nfb-sinossi .nfb-container {
-    padding-left: 60px;
-    padding-right: 60px;
+    padding-left: 80px;
+    padding-right: 80px;
 }
 
 .nfb-sinossi-layout {
@@ -665,7 +666,7 @@ body img.nfb-cover-image {
     width: 100%;
     height: 80px;
     background: var(--nfb-dark);
-    clip-path: ellipse(55% 100% at 50% 0%);
+    clip-path: ellipse(55% 100% at 50% 100%);
 }
 
 .nfb-footer-content {
