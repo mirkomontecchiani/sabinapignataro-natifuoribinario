@@ -84,7 +84,7 @@ class NFB_Shortcode {
                         <span>&times;</span>
                     </button>
                     <ul class="nfb-nav-list">
-                        <li><a href="#sinossi"><?php _e('Sinossi', 'nfb-landing'); ?></a></li>
+                        <li><a href="#sinossi"><?php _e('Il libro', 'nfb-landing'); ?></a></li>
                         <li><a href="#chi-sono"><?php _e('Chi Sono', 'nfb-landing'); ?></a></li>
                         <li><a href="#rassegna"><?php _e('Rassegna', 'nfb-landing'); ?></a></li>
                         <li><a href="#eventi"><?php _e('Eventi', 'nfb-landing'); ?></a></li>

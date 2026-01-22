@@ -78,7 +78,7 @@ body.nfb-landing-page #colophon {
     width: 100%;
     max-width: var(--nfb-container-width);
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 40px;
 }
 
 /* ==========================================================================
@@ -313,7 +313,7 @@ body img.nfb-cover-image {
     font-size: 2.5rem;
     font-weight: 700;
     color: var(--nfb-primary);
-    text-align: center;
+    text-align: left;
     margin: 0 0 40px;
     position: relative;
 }
@@ -324,15 +324,15 @@ body img.nfb-cover-image {
     width: 60px;
     height: 4px;
     background: var(--nfb-secondary);
-    margin: 15px auto 0;
+    margin: 15px 0 0;
     border-radius: 2px;
 }
 
 .nfb-section-content {
-    max-width: 800px;
-    margin: 0 auto;
+    max-width: 100%;
     font-size: 1.1rem;
     line-height: 1.8;
+    text-align: left;
 }
 
 .nfb-section-content p {
@@ -344,10 +344,18 @@ body img.nfb-cover-image {
 }
 
 /* ==========================================================================
-   Sinossi
+   Sinossi (Hero Section)
    ========================================================================== */
 .nfb-sinossi {
-    background: var(--nfb-white);
+    background: var(--nfb-dark);
+    color: var(--nfb-white);
+    padding-top: 100px;
+    margin-top: -60px;
+}
+
+.nfb-sinossi .nfb-container {
+    padding-left: 40px;
+    padding-right: 40px;
 }
 
 .nfb-sinossi-layout {
@@ -361,10 +369,12 @@ body img.nfb-cover-image {
     text-align: left;
     font-size: 1.1rem;
     line-height: 1.8;
+    color: var(--nfb-white);
 }
 
 .nfb-sinossi-text p {
     margin-bottom: 1.5em;
+    color: var(--nfb-white);
 }
 
 .nfb-sinossi-text p:last-child {
@@ -379,10 +389,19 @@ body img.nfb-cover-image {
     width: 280px;
     height: auto;
     border-radius: 8px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
 }
 
 @media screen and (max-width: 768px) {
+    .nfb-sinossi {
+        padding-top: 80px;
+    }
+
+    .nfb-sinossi .nfb-container {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
     .nfb-sinossi-layout {
         flex-direction: column-reverse;
         gap: 30px;
