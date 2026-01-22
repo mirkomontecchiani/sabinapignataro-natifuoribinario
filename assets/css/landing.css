@@ -78,7 +78,7 @@ body.nfb-landing-page #colophon {
     width: 100%;
     max-width: var(--nfb-container-width);
     margin: 0 auto;
-    padding: 0 80px;
+    padding: 0 120px;
 }
 
 /* ==========================================================================
@@ -368,8 +368,8 @@ body img.nfb-cover-image {
 }
 
 .nfb-sinossi .nfb-container {
-    padding-left: 80px;
-    padding-right: 80px;
+    padding-left: 120px;
+    padding-right: 120px;
 }
 
 .nfb-sinossi-layout {
@@ -652,21 +652,8 @@ body img.nfb-cover-image {
 .nfb-footer {
     background: var(--nfb-dark);
     color: var(--nfb-white);
-    padding: 100px 0 40px;
+    padding: 50px 0 30px;
     text-align: center;
-    position: relative;
-    margin-top: 60px;
-}
-
-.nfb-footer::before {
-    content: '';
-    position: absolute;
-    top: -60px;
-    left: 0;
-    width: 100%;
-    height: 80px;
-    background: var(--nfb-dark);
-    clip-path: ellipse(55% 100% at 50% 100%);
 }
 
 .nfb-footer-content {
@@ -983,7 +970,7 @@ body.admin-bar .nfb-section[id] {
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(40px);
+        transform: translateY(80px);
     }
     to {
         opacity: 1;
@@ -994,7 +981,7 @@ body.admin-bar .nfb-section[id] {
 @keyframes fadeInLeft {
     from {
         opacity: 0;
-        transform: translateX(-40px);
+        transform: translateX(-100px);
     }
     to {
         opacity: 1;
@@ -1005,7 +992,7 @@ body.admin-bar .nfb-section[id] {
 @keyframes fadeInRight {
     from {
         opacity: 0;
-        transform: translateX(40px);
+        transform: translateX(100px);
     }
     to {
         opacity: 1;
@@ -1030,7 +1017,7 @@ body.admin-bar .nfb-section[id] {
 }
 
 .nfb-animate.nfb-visible {
-    animation-duration: 0.8s;
+    animation-duration: 1s;
     animation-fill-mode: forwards;
     animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
