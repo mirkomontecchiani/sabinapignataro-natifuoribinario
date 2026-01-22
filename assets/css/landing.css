@@ -143,13 +143,12 @@ img.nfb-cover-image,
 .elementor-shortcode img.nfb-cover-image,
 body .nfb-cover-image,
 body img.nfb-cover-image {
-    height: 60px !important;
-    width: 45px !important;
-    max-width: 45px !important;
-    max-height: 60px !important;
+    height: 65px !important;
+    width: auto !important;
+    max-height: 65px !important;
     min-width: 0 !important;
     min-height: 0 !important;
-    object-fit: cover !important;
+    object-fit: contain !important;
     border-radius: 4px !important;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
     flex-shrink: 0 !important;
