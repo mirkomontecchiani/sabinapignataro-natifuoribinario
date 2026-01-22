@@ -91,7 +91,7 @@ body.nfb-landing-page #colophon {
     right: 0;
     z-index: 1000;
     background: var(--nfb-white);
-    box-shadow: var(--nfb-shadow);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     height: var(--nfb-header-height);
     overflow: visible !important;
 }
@@ -174,7 +174,7 @@ body img.nfb-cover-image {
 }
 
 .nfb-site-title {
-    font-size: 1.25rem;
+    font-size: 1.4rem;
     font-weight: 700;
     color: var(--nfb-primary);
     margin: 0;
@@ -182,7 +182,7 @@ body img.nfb-cover-image {
 }
 
 .nfb-site-description {
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     color: var(--nfb-text-light);
     margin: 2px 0 0;
 }
@@ -526,8 +526,8 @@ body img.nfb-cover-image {
 }
 
 .nfb-toggle-btn {
-    background: var(--nfb-accent);
-    color: var(--nfb-white);
+    background: #e0e0e0;
+    color: var(--nfb-dark);
     padding: 12px 30px;
     font-size: 1rem;
     font-weight: 500;
@@ -538,7 +538,7 @@ body img.nfb-cover-image {
 }
 
 .nfb-toggle-btn:hover {
-    background: #2980b9;
+    background: #c0c0c0;
     transform: translateY(-2px);
 }
 
@@ -558,8 +558,8 @@ body img.nfb-cover-image {
 }
 
 .nfb-eventi-list {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
     margin-bottom: 30px;
 }
@@ -908,6 +908,10 @@ body img.nfb-cover-image {
     }
 
     /* Eventi */
+    .nfb-eventi-list {
+        grid-template-columns: 1fr;
+    }
+
     .nfb-evento-card {
         flex-direction: column;
         padding: 20px;
