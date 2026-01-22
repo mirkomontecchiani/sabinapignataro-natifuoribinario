@@ -372,17 +372,8 @@ class NFB_Shortcode {
                             <?php _e('Acquista il libro', 'nfb-landing'); ?>
                         </a>
                     </div>
-                    <div class="nfb-footer-links">
-                        <a href="https://www.sabinapignataro.it/contatti/" target="_blank" rel="noopener">
-                            <?php _e('Contatti', 'nfb-landing'); ?>
-                        </a>
-                        <span class="nfb-footer-divider">|</span>
-                        <a href="https://www.sabinapignataro.it" target="_blank" rel="noopener">
-                            <?php _e('sabinapignataro.it', 'nfb-landing'); ?>
-                        </a>
-                    </div>
                     <p class="nfb-footer-copyright">
-                        &copy; <?php echo date('Y'); ?> <?php echo esc_html(get_bloginfo('name')); ?>
+                        &copy;<?php echo date('Y'); ?> by Sabina Pignataro - <a href="https://natifuoribinario.it/privacy/" rel="noopener"><?php _e('Privacy Policy', 'nfb-landing'); ?></a>
                     </p>
                 </div>
             </div>
