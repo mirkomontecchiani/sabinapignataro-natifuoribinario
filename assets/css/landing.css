@@ -78,7 +78,7 @@ body.nfb-landing-page #colophon {
     width: 100%;
     max-width: var(--nfb-container-width);
     margin: 0 auto;
-    padding: 0 40px;
+    padding: 0 60px;
 }
 
 /* ==========================================================================
@@ -107,16 +107,16 @@ body.admin-bar .nfb-header {
 }
 
 .nfb-header-spacer {
-    height: calc(var(--nfb-header-height) + 60px);
+    height: var(--nfb-header-height);
 }
 
 body.admin-bar .nfb-header-spacer {
-    height: calc(var(--nfb-header-height) + 92px);
+    height: calc(var(--nfb-header-height) + 32px);
 }
 
 @media screen and (max-width: 782px) {
     body.admin-bar .nfb-header-spacer {
-        height: calc(var(--nfb-header-height) + 106px);
+        height: calc(var(--nfb-header-height) + 46px);
     }
 }
 
@@ -349,13 +349,13 @@ body img.nfb-cover-image {
 .nfb-sinossi {
     background: var(--nfb-dark);
     color: var(--nfb-white);
-    padding-top: 100px;
-    margin-top: -60px;
+    padding-top: 80px;
+    margin-top: 0;
 }
 
 .nfb-sinossi .nfb-container {
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-left: 60px;
+    padding-right: 60px;
 }
 
 .nfb-sinossi-layout {
@@ -703,7 +703,7 @@ body img.nfb-cover-image {
 .nfb-scroll-top {
     position: fixed;
     bottom: 30px;
-    left: 30px;
+    right: 30px;
     width: 50px;
     height: 50px;
     background: var(--nfb-purple);
@@ -721,7 +721,8 @@ body img.nfb-cover-image {
 }
 
 .nfb-scroll-top:hover {
-    background: var(--nfb-dark);
+    background: var(--nfb-white);
+    color: var(--nfb-purple);
     transform: translateY(-3px);
 }
 
