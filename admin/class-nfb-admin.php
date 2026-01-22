@@ -21,12 +21,13 @@ class NFB_Admin {
     private function __construct() {
         add_action('admin_menu', array($this, 'add_admin_menu'));
         add_action('admin_init', array($this, 'register_settings'));
+        add_action('admin_menu', array($this, 'hide_elementor_for_editors'), 999);
     }
 
     public function add_admin_menu() {
         add_menu_page(
-            __('Nati Fuori Binario', 'nfb-landing'),
-            __('NFB Landing', 'nfb-landing'),
+            __('Testi della Home', 'nfb-landing'),
+            __('Testi della home', 'nfb-landing'),
             'edit_posts',
             'nfb-landing',
             array($this, 'render_settings_page'),
@@ -42,6 +43,14 @@ class NFB_Admin {
             'nfb-landing',
             array($this, 'render_settings_page')
         );
+    }
+
+    public function hide_elementor_for_editors() {
+        // Hide Elementor menu for editors and authors (non-admins)
+        if (!current_user_can('manage_options')) {
+            remove_menu_page('elementor');
+            remove_menu_page('edit.php?post_type=elementor_library');
+        }
     }
 
     public function register_settings() {

@@ -285,7 +285,8 @@ body img.nfb-cover-image {
 }
 
 .nfb-btn-buy:hover {
-    background: #7B3FA8;
+    background: var(--nfb-yellow);
+    color: var(--nfb-purple) !important;
     transform: translateY(-2px);
     box-shadow: var(--nfb-shadow-lg);
 }
