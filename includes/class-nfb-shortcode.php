@@ -84,7 +84,7 @@ class NFB_Shortcode {
                         <span>&times;</span>
                     </button>
                     <ul class="nfb-nav-list">
-                        <li><a href="#sinossi"><?php _e('Sinossi', 'nfb-landing'); ?></a></li>
+                        <li><a href="#sinossi"><?php _e('Il libro', 'nfb-landing'); ?></a></li>
                         <li><a href="#chi-sono"><?php _e('Chi Sono', 'nfb-landing'); ?></a></li>
                         <li><a href="#rassegna"><?php _e('Rassegna', 'nfb-landing'); ?></a></li>
                         <li><a href="#eventi"><?php _e('Eventi', 'nfb-landing'); ?></a></li>
@@ -383,6 +383,11 @@ class NFB_Shortcode {
                 </div>
             </div>
         </footer>
+        <a href="#nfb-header" class="nfb-scroll-top" id="nfb-scroll-top" aria-label="<?php _e('Torna su', 'nfb-landing'); ?>">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="18 15 12 9 6 15"></polyline>
+            </svg>
+        </a>
         <?php
     }
 }

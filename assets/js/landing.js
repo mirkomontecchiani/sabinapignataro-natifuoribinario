@@ -17,6 +17,7 @@
             this.rassegnaToggle();
             this.eventiToggle();
             this.headerShrink();
+            this.scrollToTop();
         },
 
         /**
@@ -185,6 +186,26 @@
                     $header.addClass('nfb-header-scrolled');
                 } else {
                     $header.removeClass('nfb-header-scrolled');
+                }
+            });
+        },
+
+        /**
+         * Scroll to Top Button
+         */
+        scrollToTop: function() {
+            var $scrollBtn = $('#nfb-scroll-top');
+            var scrollThreshold = 300;
+
+            if (!$scrollBtn.length) {
+                return;
+            }
+
+            $(window).on('scroll', function() {
+                if ($(this).scrollTop() > scrollThreshold) {
+                    $scrollBtn.addClass('visible');
+                } else {
+                    $scrollBtn.removeClass('visible');
                 }
             });
         }
