@@ -725,6 +725,16 @@ body img.nfb-cover-image {
     margin: 0;
 }
 
+.nfb-footer-copyright a {
+    color: var(--nfb-yellow);
+    text-decoration: none;
+    transition: var(--nfb-transition);
+}
+
+.nfb-footer-copyright a:hover {
+    color: var(--nfb-white);
+}
+
 /* ==========================================================================
    Mobile Overlay
    ========================================================================== */
