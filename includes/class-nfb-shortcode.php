@@ -62,7 +62,7 @@ class NFB_Shortcode {
         <header class="nfb-header" id="nfb-header">
             <div class="nfb-header-inner">
                 <div class="nfb-header-left">
-                    <img src="<?php echo esc_url($cover_image); ?>" alt="<?php echo esc_attr($site_title); ?>" class="nfb-cover-image" style="width:auto!important;height:80px!important;max-height:80px!important;object-fit:contain!important;">
+                    <img src="<?php echo esc_url($cover_image); ?>" alt="<?php echo esc_attr($site_title); ?>" class="nfb-cover-image" style="width:auto!important;height:128px!important;max-height:128px!important;object-fit:contain!important;">
                     <div class="nfb-header-text">
                         <h1 class="nfb-site-title"><?php echo esc_html($site_title); ?></h1>
                         <?php if ($site_description): ?>
