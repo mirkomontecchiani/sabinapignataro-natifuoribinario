@@ -7,20 +7,26 @@
    CSS Variables
    ========================================================================== */
 :root {
-    --nfb-primary: #2c3e50;
-    --nfb-secondary: #e74c3c;
-    --nfb-accent: #3498db;
-    --nfb-light: #ecf0f1;
-    --nfb-dark: #1a252f;
-    --nfb-text: #333333;
-    --nfb-text-light: #666666;
-    --nfb-white: #ffffff;
+    /* Non-binary flag colors */
+    --nfb-yellow: #FCF434;
+    --nfb-white: #FFFFFF;
+    --nfb-purple: #9C59D1;
+    --nfb-black: #2D2D2D;
+
+    /* Theme colors based on non-binary flag */
+    --nfb-primary: #2D2D2D;
+    --nfb-secondary: #9C59D1;
+    --nfb-accent: #FCF434;
+    --nfb-light: #F8F8F8;
+    --nfb-dark: #2D2D2D;
+    --nfb-text: #2D2D2D;
+    --nfb-text-light: #555555;
     --nfb-border: #ddd;
     --nfb-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     --nfb-shadow-lg: 0 4px 20px rgba(0, 0, 0, 0.15);
     --nfb-transition: all 0.3s ease;
     --nfb-header-height: 80px;
-    --nfb-container-width: 1200px;
+    --nfb-container-width: 1400px;
     --nfb-font-primary: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 }
 
@@ -278,7 +284,7 @@ body img.nfb-cover-image {
 }
 
 .nfb-btn-buy:hover {
-    background: #c0392b;
+    background: #7B3FA8;
     transform: translateY(-2px);
     box-shadow: var(--nfb-shadow-lg);
 }
@@ -344,8 +350,54 @@ body img.nfb-cover-image {
     background: var(--nfb-white);
 }
 
-.nfb-sinossi .nfb-section-content {
-    text-align: justify;
+.nfb-sinossi-layout {
+    display: flex;
+    align-items: flex-start;
+    gap: 60px;
+}
+
+.nfb-sinossi-text {
+    flex: 1;
+    text-align: left;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.nfb-sinossi-text p {
+    margin-bottom: 1.5em;
+}
+
+.nfb-sinossi-text p:last-child {
+    margin-bottom: 0;
+}
+
+.nfb-sinossi-cover {
+    flex-shrink: 0;
+}
+
+.nfb-sinossi-image {
+    width: 280px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (max-width: 768px) {
+    .nfb-sinossi-layout {
+        flex-direction: column-reverse;
+        gap: 30px;
+    }
+
+    .nfb-sinossi-image {
+        width: 200px;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .nfb-sinossi-cover {
+        text-align: center;
+        width: 100%;
+    }
 }
 
 /* ==========================================================================
@@ -788,7 +840,7 @@ body img.nfb-cover-image {
     }
 
     .nfb-site-description {
-        display: none;
+        font-size: 0.7rem;
     }
 
     .nfb-rassegna-grid {
