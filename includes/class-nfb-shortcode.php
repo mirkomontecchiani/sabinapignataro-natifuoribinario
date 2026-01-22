@@ -45,6 +45,7 @@ class NFB_Shortcode {
             $this->render_header();
             $this->render_sinossi($sinossi);
             $this->render_chi_sono($chi_sono);
+            $this->render_premio();
             $this->render_rassegna();
             $this->render_eventi();
             $this->render_footer();
@@ -86,6 +87,7 @@ class NFB_Shortcode {
                     <ul class="nfb-nav-list">
                         <li><a href="#sinossi"><?php _e('Il libro', 'nfb-landing'); ?></a></li>
                         <li><a href="#chi-sono"><?php _e('Chi Sono', 'nfb-landing'); ?></a></li>
+                        <li><a href="#premio"><?php _e('Premio', 'nfb-landing'); ?></a></li>
                         <li><a href="#rassegna"><?php _e('Rassegna', 'nfb-landing'); ?></a></li>
                         <li><a href="#eventi"><?php _e('Eventi', 'nfb-landing'); ?></a></li>
                         <li><a href="https://www.sabinapignataro.it/contatti/" target="_blank" rel="noopener"><?php _e('Contatti', 'nfb-landing'); ?></a></li>
@@ -131,6 +133,25 @@ class NFB_Shortcode {
                 <h2 class="nfb-section-title"><?php _e('Chi Sono', 'nfb-landing'); ?></h2>
                 <div class="nfb-section-content">
                     <?php echo wp_kses_post($content); ?>
+                </div>
+            </div>
+        </section>
+        <?php
+    }
+
+    private function render_premio() {
+        ?>
+        <section class="nfb-section nfb-premio" id="premio">
+            <div class="nfb-container">
+                <h2 class="nfb-section-title"><?php _e('Candidato al Premio Inge Feltrinelli', 'nfb-landing'); ?></h2>
+                <div class="nfb-premio-content">
+                    <p><?php _e('Questo libro è stato selezionato tra i candidati al <strong>Premio Inge Feltrinelli</strong>, un riconoscimento dedicato ai libri che raccontano storie di coraggio, inclusione e cambiamento sociale.', 'nfb-landing'); ?></p>
+                    <p><?php _e('Il tuo voto può fare la differenza!', 'nfb-landing'); ?></p>
+                </div>
+                <div class="nfb-premio-cta">
+                    <a href="https://premioingefeltrinelli.it/libri/nati-fuori-binario/" target="_blank" rel="noopener" class="nfb-btn nfb-btn-premio">
+                        <?php _e('Vota ora', 'nfb-landing'); ?>
+                    </a>
                 </div>
             </div>
         </section>
