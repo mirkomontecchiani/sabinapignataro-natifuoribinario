@@ -666,7 +666,7 @@ body img.nfb-cover-image {
     width: 100%;
     height: 80px;
     background: var(--nfb-dark);
-    clip-path: ellipse(55% 100% at 50% 0%);
+    clip-path: ellipse(55% 100% at 50% 100%);
 }
 
 .nfb-footer-content {
