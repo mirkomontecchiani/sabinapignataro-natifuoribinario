@@ -1,0 +1,40 @@
+/**
+ * Nati Fuori Binario Landing - Admin Styles
+ */
+
+.nfb-admin-intro {
+    background: #fff;
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid #ccd0d4;
+    border-radius: 4px;
+}
+
+.nfb-shortcode-info {
+    background: #f0f6fc;
+    padding: 15px;
+    margin: 15px 0;
+    border-left: 4px solid #2271b1;
+}
+
+.nfb-shortcode-info code {
+    display: inline-block;
+    padding: 5px 15px;
+    background: #1d2327;
+    color: #50c878;
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.nfb-sections-info {
+    margin-top: 20px;
+}
+
+.nfb-sections-info ul {
+    list-style: disc;
+    margin-left: 20px;
+}
+
+.nfb-sections-info li {
+    margin: 8px 0;
+}
