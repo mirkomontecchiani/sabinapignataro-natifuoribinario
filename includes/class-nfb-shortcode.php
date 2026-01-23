@@ -37,15 +37,18 @@ class NFB_Shortcode {
         $options = get_option('nfb_landing_options');
         $sinossi = isset($options['sinossi']) ? $options['sinossi'] : '';
         $chi_sono = isset($options['chi_sono']) ? $options['chi_sono'] : '';
+        $premio_attivo = isset($options['premio_attivo']) ? $options['premio_attivo'] : '1';
 
         ob_start();
         ?>
         <div class="nfb-landing-wrapper">
             <?php
-            $this->render_header();
+            $this->render_header($premio_attivo);
             $this->render_sinossi($sinossi);
             $this->render_chi_sono($chi_sono);
-            $this->render_premio();
+            if ($premio_attivo === '1') {
+                $this->render_premio();
+            }
             $this->render_rassegna();
             $this->render_eventi();
             $this->render_footer();
@@ -55,7 +58,7 @@ class NFB_Shortcode {
         return ob_get_clean();
     }
 
-    private function render_header() {
+    private function render_header($premio_attivo = '1') {
         $site_title = get_bloginfo('name');
         $site_description = get_bloginfo('description');
         $cover_image = NFB_LANDING_PLUGIN_URL . 'assets/images/Copertina-Nati-Fuori-Binario.jpg';
@@ -87,7 +90,9 @@ class NFB_Shortcode {
                     <ul class="nfb-nav-list">
                         <li><a href="#sinossi"><?php _e('Il libro', 'nfb-landing'); ?></a></li>
                         <li><a href="#chi-sono"><?php _e('Chi Sono', 'nfb-landing'); ?></a></li>
-                        <li><a href="#premio"><?php _e('Premio', 'nfb-landing'); ?></a></li>
+                        <?php if ($premio_attivo === '1'): ?>
+                            <li><a href="#premio"><?php _e('Premio', 'nfb-landing'); ?></a></li>
+                        <?php endif; ?>
                         <li><a href="#rassegna"><?php _e('Rassegna', 'nfb-landing'); ?></a></li>
                         <li><a href="#eventi"><?php _e('Eventi', 'nfb-landing'); ?></a></li>
                         <li><a href="https://www.sabinapignataro.it/contatti/" target="_blank" rel="noopener"><?php _e('Contatti', 'nfb-landing'); ?></a></li>
@@ -328,7 +333,7 @@ class NFB_Shortcode {
         $data = get_post_meta(get_the_ID(), '_nfb_evento_data', true);
         $ora = get_post_meta(get_the_ID(), '_nfb_evento_ora', true);
         $link = get_post_meta(get_the_ID(), '_nfb_evento_link', true);
-        $content = get_the_content();
+        $content = apply_filters('the_content', get_the_content());
 
         $formatted_date = '';
         if (!empty($data)) {

@@ -94,6 +94,22 @@ class NFB_Admin {
             'nfb-landing',
             'nfb_chi_sono_section'
         );
+
+        // Sezione Premio Inge Feltrinelli
+        add_settings_section(
+            'nfb_premio_section',
+            __('Premio Inge Feltrinelli', 'nfb-landing'),
+            array($this, 'premio_section_callback'),
+            'nfb-landing'
+        );
+
+        add_settings_field(
+            'premio_attivo',
+            __('Mostra sezione Premio', 'nfb-landing'),
+            array($this, 'premio_attivo_field_callback'),
+            'nfb-landing',
+            'nfb_premio_section'
+        );
     }
 
     public function sanitize_options($input) {
@@ -106,6 +122,8 @@ class NFB_Admin {
         if (isset($input['chi_sono'])) {
             $sanitized['chi_sono'] = wp_kses_post($input['chi_sono']);
         }
+
+        $sanitized['premio_attivo'] = isset($input['premio_attivo']) ? '1' : '0';
 
         return $sanitized;
     }
@@ -142,6 +160,22 @@ class NFB_Admin {
             'teeny' => false,
             'quicktags' => true,
         ));
+    }
+
+    public function premio_section_callback() {
+        echo '<p>' . __('Gestisci la visibilità della sezione Premio Inge Feltrinelli nella landing page.', 'nfb-landing') . '</p>';
+    }
+
+    public function premio_attivo_field_callback() {
+        $options = get_option('nfb_landing_options');
+        $premio_attivo = isset($options['premio_attivo']) ? $options['premio_attivo'] : '1';
+        ?>
+        <label for="nfb_premio_attivo">
+            <input type="checkbox" id="nfb_premio_attivo" name="nfb_landing_options[premio_attivo]" value="1" <?php checked($premio_attivo, '1'); ?>>
+            <?php _e('Attiva la sezione Premio Inge Feltrinelli', 'nfb-landing'); ?>
+        </label>
+        <p class="description"><?php _e('Deseleziona per nascondere la sezione del premio dalla landing page.', 'nfb-landing'); ?></p>
+        <?php
     }
 
     public function render_settings_page() {
