@@ -38,6 +38,8 @@ class NFB_Shortcode {
         $sinossi = isset($options['sinossi']) ? $options['sinossi'] : '';
         $chi_sono = isset($options['chi_sono']) ? $options['chi_sono'] : '';
         $premio_attivo = isset($options['premio_attivo']) ? $options['premio_attivo'] : '1';
+        $default_premio_text = '<p>Questo libro è stato selezionato tra i candidati al <strong>Premio Inge Feltrinelli</strong>, un riconoscimento dedicato ai libri che raccontano storie di coraggio, inclusione e cambiamento sociale.</p><p>Il tuo voto può fare la differenza!</p>';
+        $premio_testo = isset($options['premio_testo']) ? $options['premio_testo'] : $default_premio_text;
 
         ob_start();
         ?>
@@ -47,7 +49,7 @@ class NFB_Shortcode {
             $this->render_sinossi($sinossi);
             $this->render_chi_sono($chi_sono);
             if ($premio_attivo === '1') {
-                $this->render_premio();
+                $this->render_premio($premio_testo);
             }
             $this->render_rassegna();
             $this->render_eventi();
@@ -144,14 +146,13 @@ class NFB_Shortcode {
         <?php
     }
 
-    private function render_premio() {
+    private function render_premio($content = '') {
         ?>
         <section class="nfb-section nfb-premio" id="premio">
             <div class="nfb-container">
                 <h2 class="nfb-section-title"><?php _e('Candidato al Premio Inge Feltrinelli', 'nfb-landing'); ?></h2>
                 <div class="nfb-premio-content">
-                    <p><?php _e('Questo libro è stato selezionato tra i candidati al <strong>Premio Inge Feltrinelli</strong>, un riconoscimento dedicato ai libri che raccontano storie di coraggio, inclusione e cambiamento sociale.', 'nfb-landing'); ?></p>
-                    <p><?php _e('Il tuo voto può fare la differenza!', 'nfb-landing'); ?></p>
+                    <?php echo wp_kses_post($content); ?>
                 </div>
                 <div class="nfb-premio-cta">
                     <a href="https://premioingefeltrinelli.it/libri/nati-fuori-binario/" target="_blank" rel="noopener" class="nfb-btn nfb-btn-premio">

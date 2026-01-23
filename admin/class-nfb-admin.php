@@ -110,6 +110,14 @@ class NFB_Admin {
             'nfb-landing',
             'nfb_premio_section'
         );
+
+        add_settings_field(
+            'premio_testo',
+            __('Testo Premio', 'nfb-landing'),
+            array($this, 'premio_testo_field_callback'),
+            'nfb-landing',
+            'nfb_premio_section'
+        );
     }
 
     public function sanitize_options($input) {
@@ -124,6 +132,10 @@ class NFB_Admin {
         }
 
         $sanitized['premio_attivo'] = isset($input['premio_attivo']) ? '1' : '0';
+
+        if (isset($input['premio_testo'])) {
+            $sanitized['premio_testo'] = wp_kses_post($input['premio_testo']);
+        }
 
         return $sanitized;
     }
@@ -163,7 +175,7 @@ class NFB_Admin {
     }
 
     public function premio_section_callback() {
-        echo '<p>' . __('Gestisci la visibilità della sezione Premio Inge Feltrinelli nella landing page.', 'nfb-landing') . '</p>';
+        echo '<p>' . __('Gestisci la visibilità e il contenuto della sezione Premio Inge Feltrinelli nella landing page.', 'nfb-landing') . '</p>';
     }
 
     public function premio_attivo_field_callback() {
@@ -176,6 +188,21 @@ class NFB_Admin {
         </label>
         <p class="description"><?php _e('Deseleziona per nascondere la sezione del premio dalla landing page.', 'nfb-landing'); ?></p>
         <?php
+    }
+
+    public function premio_testo_field_callback() {
+        $options = get_option('nfb_landing_options');
+        $default_text = '<p>Questo libro è stato selezionato tra i candidati al <strong>Premio Inge Feltrinelli</strong>, un riconoscimento dedicato ai libri che raccontano storie di coraggio, inclusione e cambiamento sociale.</p><p>Il tuo voto può fare la differenza!</p>';
+        $content = isset($options['premio_testo']) ? $options['premio_testo'] : $default_text;
+
+        wp_editor($content, 'nfb_premio_testo_editor', array(
+            'textarea_name' => 'nfb_landing_options[premio_testo]',
+            'textarea_rows' => 8,
+            'media_buttons' => false,
+            'teeny' => false,
+            'quicktags' => true,
+        ));
+        echo '<p class="description">' . __('Inserisci il testo che verrà mostrato nella sezione Premio Inge Feltrinelli.', 'nfb-landing') . '</p>';
     }
 
     public function render_settings_page() {
